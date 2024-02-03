@@ -31,6 +31,7 @@ function TodoHome() {
             placeholder="Enter task item"
             handleSubmit={handleKeyDown}
             handleChange={handleChange}
+            currText={currText}
           />
           <Button placeholder="Add" handleSubmit={handleSubmit} type="add" />
         </div>
