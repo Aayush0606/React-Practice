@@ -25,7 +25,7 @@ export default function PasswordHome() {
   }, [length, alphanumeric, number]);
   return (
     <>
-      <div className="flex w-screen h-screen justify-center items-center">
+      <div className="flex h-screen justify-center items-center">
         <div className="w-[45em] h-[15em]  rounded-xl">
           <div className="flex flex-col  align-center m-4 gap-6">
             <div className="h-[3em] flex gap-4">
