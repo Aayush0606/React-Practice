@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextBox from "../../components/TextBox/TextBox";
 import Button from "../../components/Button/Button";
 import ListItem from "../../components/ListItem/ListItem";
@@ -12,7 +12,17 @@ function TodoHome() {
     if (currText == "") return;
     const key = Date.now();
     var newList = taskText;
-    newList.push({ currText, key });
+    newList.push({ currText, key, isComplete: false });
+    localStorage.setItem("todos", JSON.stringify(newList));
+    setTaskText(newList);
+    setCurrText("");
+  };
+  const handleEdit = (item) => {
+    const newList = taskText.map((data) => {
+      if (item.key != data.key) return data;
+      return item;
+    });
+    localStorage.setItem("todos", JSON.stringify(newList));
     setTaskText(newList);
     setCurrText("");
   };
@@ -21,8 +31,13 @@ function TodoHome() {
   };
   const handleDelete = (e) => {
     var newList = taskText.filter((item) => item.key != e.key);
+    localStorage.setItem("todos", JSON.stringify(newList));
     setTaskText(newList);
   };
+  useEffect(() => {
+    const prevList = JSON.parse(localStorage.getItem("todos")) || [];
+    setTaskText(prevList);
+  }, []);
   return (
     <>
       <div className="h-screen ">
@@ -41,7 +56,9 @@ function TodoHome() {
               <ListItem
                 key={item.key}
                 item={item}
+                isComplete={item.isComplete}
                 handleDelete={handleDelete}
+                handleEdit={handleEdit}
               />
             ))}
           </ol>

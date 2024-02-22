@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  background-color: rgb(39 39 42); /* Replace with your desired color */
   margin: 0; /* Remove default body margin */
+}
+
+.dark {
+  background-color: #27272a; /* Replace with your desired color */
+}
+.light {
+  background-color: #e7e7ec; /* Replace with your desired color */
 }
