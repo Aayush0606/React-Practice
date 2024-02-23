@@ -9,11 +9,6 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { fetchData } from "./components/Home/Home";
-// import TodoHome from "./pages/TodoApp/TodoHome";
-// import QuoteHome from "./pages/QuoteApp/QuoteHome";
-// import PasswordHome from "./pages/PasswordApp/PasswordHome";
-// import CurrencyHome from "./pages/CurrencyApp/CurrencyHome";
-// import Home, { fetchData } from "./components/Home/Home";
 import { ThemeProvider } from "./context/Theme/ThemeContext.jsx";
 
 //! With lazy Loading
@@ -23,8 +18,8 @@ const router = createBrowserRouter(
       <Route
         path=""
         lazy={async () => {
-          const Home = await import("./components/Home/Home");
-          return { Component: Home.default };
+          const LandingHome = await import("./pages/LandingApp/LandingHome");
+          return { Component: LandingHome.default };
         }}
         loader={fetchData}
       />
