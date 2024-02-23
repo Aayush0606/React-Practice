@@ -51,6 +51,20 @@ const router = createBrowserRouter(
           return { Component: CurrencyHome.default };
         }}
       />
+      <Route
+        path="click1"
+        lazy={async () => {
+          const CurrencyHome = await import("./pages/ClickMeApp/ClickMe1Home");
+          return { Component: CurrencyHome.default };
+        }}
+      />
+      <Route
+        path="click2"
+        lazy={async () => {
+          const CurrencyHome = await import("./pages/ClickMeApp/ClickMe2Home");
+          return { Component: CurrencyHome.default };
+        }}
+      />
     </Route>
   )
 );

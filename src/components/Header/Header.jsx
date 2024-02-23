@@ -8,6 +8,8 @@ export default function Header() {
     { name: "Image", to: "/image" },
     { name: "Password", to: "/password" },
     { name: "Currency", to: "/currency" },
+    { name: "Click1", to: "/click1" },
+    { name: "Click2", to: "/click2" },
   ];
   return (
     <header className="shadow sticky z-50 top-0">
