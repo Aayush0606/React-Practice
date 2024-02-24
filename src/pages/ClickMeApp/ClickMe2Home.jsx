@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 function ClickMe2Home() {
   const [top, setTop] = useState(50);
   const [left, setLeft] = useState(52);
